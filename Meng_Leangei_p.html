@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leangei - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+            background-color: white;
+        }
+
+        .container {
+            overflow: hidden;
+            background-color: white;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            z-index: 10;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            padding: 3rem 4rem;
+            width: 100%;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+            text-align: center;
+            color: white;
+            white-space: nowrap;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            background-color: rgb(15, 23, 42);
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            justify-content: space-between;
+            max-width: 100%;
+            width: 507px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: rgb(196, 181, 253);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 9rem 5rem 16rem;
+            margin-top: 0;
+            width: 100%;
+            background-color: rgb(2, 6, 23);
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0;
+            margin-left: 3.5rem;
+            max-width: 100%;
+            width: 1172px;
+        }
+
+        /* Hero Section */
+        .hero-intro {
+            align-self: flex-start;
+            margin-left: 18rem;
+            font-size: 1.25rem;
+            letter-spacing: -0.025em;
+            line-height: 1.25rem;
+            text-align: center;
+            color: white;
+        }
+
+        .purple-text {
+            color: rgba(113, 39, 186, 1);
+        }
+
+        .hero-main {
+            margin-top: 2.5rem;
+            max-width: 100%;
+            width: 652px;
+        }
+
+        .hero-grid {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .hero-image-col {
+            width: 40%;
+        }
+
+        .hero-image {
+            object-fit: contain;
+            width: 100%;
+            aspect-ratio: 1;
+        }
+
+        .hero-text-col {
+            margin-left: 1.25rem;
+            width: 60%;
+        }
+
+        .hero-text-content {
+            display: flex;
+            flex-direction: column;
+            align-self: stretch;
+            margin: auto 0;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            letter-spacing: 0.05em;
+            line-height: 63px;
+        }
+
+        .hero-subtitle {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            letter-spacing: 0.025em;
+            text-align: center;
+        }
+
+        .hero-description {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0 0.375rem;
+            margin-top: 6rem;
+            width: 100%;
+        }
+
+        .developer-title {
+            margin-left: 0.75rem;
+            font-size: 3rem;
+            letter-spacing: 0.05em;
+            color: white;
+        }
+
+        .job-description {
+            margin-left: 4rem;
+            font-size: 1.5rem;
+            letter-spacing: 0.025em;
+            color: white;
+        }
+
+        .bio-text {
+            margin-top: 2.25rem;
+            margin-left: 0.875rem;
+            font-size: 1.5rem;
+            letter-spacing: 0.025em;
+            color: white;
+            width: 892px;
+            max-width: 100%;
+        }
+
+        /* Work Experience Section */
+        .work-experience {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0 0.375rem;
+            margin-top: 6rem;
+            width: 100%;
+        }
+
+        .work-title {
+            margin-top: 12rem;
+            font-size: 2.25rem;
+            letter-spacing: 0.05em;
+            color: white;
+        }
+
+        .projects-grid {
+            align-self: stretch;
+            margin-top: 2.75rem;
+        }
+
+        .projects-row {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .project-col {
+            width: 50%;
+        }
+
+        .project-card {
+            padding-bottom: 1.5rem;
+            width: 100%;
+            border-radius: 1rem;
+            border: 1px solid;
+            box-shadow: 4px 7px 26px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-card.indigo {
+            border-color: rgb(30, 27, 75);
+        }
+
+        .project-card.violet {
+            border-color: rgb(46, 16, 101);
+        }
+
+        .project-content {
+            padding: 2.25rem 4rem 1rem;
+        }
+
+        .project-inner {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .project-image-col {
+            width: 35%;
+        }
+
+        .project-image {
+            object-fit: contain;
+            width: 122px;
+            max-width: 100%;
+            aspect-ratio: 1.06;
+        }
+
+        .project-text-col {
+            margin-left: 1.25rem;
+            width: 65%;
+        }
+
+        .project-text {
+            margin-top: 0.625rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1;
+            border: 1px solid;
+        }
+
+        .project-title.indigo {
+            border-color: rgb(30, 27, 75);
+        }
+
+        .project-title.violet {
+            border-color: rgb(46, 16, 101);
+        }
+
+        .project-description {
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            line-height: 0.75rem;
+            border: 1px solid;
+        }
+
+        .project-description.indigo {
+            border-color: rgb(30, 27, 75);
+        }
+
+        .project-description.violet {
+            border-color: rgb(46, 16, 101);
+        }
+
+        .learn-more-btn {
+            padding: 0.75rem 1.75rem;
+            margin-top: 0.625rem;
+            max-width: 100%;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            text-align: center;
+            border-radius: 0.75rem;
+            border: 1px solid;
+            width: 119px;
+            background-color: rgb(30, 27, 75);
+            color: white;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .learn-more-btn:hover {
+            opacity: 0.8;
+        }
+
+        .learn-more-btn.violet {
+            border-color: rgb(46, 16, 101);
+        }
+
+        .learn-more-btn.indigo {
+            border-color: rgb(30, 27, 75);
+        }
+
+        .showcase-images {
+            align-self: stretch;
+            margin-top: 0.875rem;
+        }
+
+        .showcase-row {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .showcase-image {
+            object-fit: contain;
+            width: 100%;
+            aspect-ratio: 2.91;
+        }
+
+        .main-showcase {
+            object-fit: contain;
+            align-self: center;
+            margin-top: 10rem;
+            max-width: 100%;
+            aspect-ratio: 1.19;
+            width: 895px;
+        }
+
+        /* Project Showcase Sections */
+        .project-showcase {
+            margin-top: 12rem;
+        }
+
+        .project-showcase.second {
+            margin-top: 13rem;
+        }
+
+        .showcase-content {
+            display: flex;
+            z-index: 10;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 2.75rem;
+            margin-right: 0;
+            width: 100%;
+        }
+
+        .showcase-content.right {
+            align-items: flex-end;
+        }
+
+        .showcase-title {
+            font-size: 2.25rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: rgb(199, 210, 254);
+        }
+
+        .showcase-description-box {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            align-self: stretch;
+            padding: 1.75rem 2.25rem;
+            margin-top: 2rem;
+            width: 100%;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: rgb(199, 210, 254);
+            border-radius: 1rem;
+            min-height: 165px;
+        }
+
+        .showcase-description-box.right {
+            margin-top: 1.75rem;
+        }
+
+        .showcase-bg-image {
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .showcase-description {
+            position: relative;
+            z-index: 10;
+        }
+
+        .showcase-links {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-top: 2.25rem;
+            margin-left: 1.75rem;
+        }
+
+        .showcase-links.right {
+            margin-right: 2.75rem;
+            margin-left: 0;
+        }
+
+        .showcase-icon {
+            object-fit: contain;
+            width: 31px;
+            height: 31px;
+            transition: opacity 0.3s ease;
+        }
+
+        .showcase-icon:hover {
+            opacity: 0.8;
+        }
+
+        .icon-container {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            flex-direction: column;
+            width: 31px;
+            height: 31px;
+        }
+
+        .icon-bg {
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .icon-overlay {
+            object-fit: contain;
+            width: 100%;
+            aspect-ratio: 1;
+        }
+
+        .showcase-project-image {
+            object-fit: contain;
+            width: 100%;
+            aspect-ratio: 1.71;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .contact-title {
+            align-self: flex-start;
+            margin-top: 15rem;
+            font-size: 1.5rem;
+            letter-spacing: 0.025em;
+            color: white;
+        }
+
+        .contact-text {
+            align-self: flex-start;
+            margin-top: 5rem;
+            font-size: 1rem;
+            letter-spacing: 0.025em;
+            color: white;
+        }
+
+        .contact-email {
+            color: rgb(196, 181, 253);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: rgb(221, 214, 254);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.25rem;
+            }
+
+            .main-content {
+                padding: 6rem 1.25rem;
+            }
+
+            .content-wrapper {
+                margin-left: 0;
+                margin-bottom: 0.625rem;
+            }
+
+            .hero-intro {
+                margin-left: 0.625rem;
+            }
+
+            .hero-grid {
+                flex-direction: column;
+            }
+
+            .hero-image-col,
+            .hero-text-col {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .hero-text-content {
+                margin-top: 2.5rem;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+                line-height: 56px;
+            }
+
+            .hero-description {
+                margin-top: 2.5rem;
+            }
+
+            .developer-title {
+                font-size: 2.25rem;
+            }
+
+            .work-title {
+                margin-top: 2.5rem;
+                margin-left: 0.375rem;
+            }
+
+            .projects-row {
+                flex-direction: column;
+            }
+
+            .project-col {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .project-card {
+                margin-top: 1.25rem;
+            }
+
+            .project-content {
+                padding: 2.25rem 1.25rem 1rem;
+            }
+
+            .project-inner {
+                flex-direction: column;
+            }
+
+            .project-image-col,
+            .project-text-col {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .project-text {
+                margin-top: 2.5rem;
+            }
+
+            .learn-more-btn {
+                padding: 0.75rem 1.25rem;
+            }
+
+            .showcase-row {
+                flex-direction: column;
+            }
+
+            .showcase-images .project-col {
+                margin-top: 1.5rem;
+            }
+
+            .main-showcase {
+                margin-top: 2.5rem;
+            }
+
+            .project-showcase,
+            .project-showcase.second {
+                margin-top: 2.5rem;
+            }
+
+            .showcase-description-box {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .showcase-links {
+                margin-left: 0.625rem;
+            }
+
+            .showcase-links.right {
+                margin-right: 0.625rem;
+            }
+
+            .contact-title {
+                margin-top: 2.5rem;
+            }
+
+            .contact-text {
+                margin-top: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#lab">Lab</a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Hero Section -->
+                <section>
+                    <div class="hero-intro">
+                        Hello! I Am <span class="purple-text">Meng Leangei</span>
+                    </div>
+
+                    <div class="hero-main">
+                        <div class="hero-grid">
+                            <div class="hero-image-col">
+                                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/a43f8b3324f1a443aa183e5b88a638aa7f294d05?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="Profile" class="hero-image">
+                            </div>
+                            <div class="hero-text-col">
+                                <div class="hero-text-content">
+                                    <h1 class="hero-title">
+                                        Judges a book<br>
+                                        by its <span class="purple-text">cover</span>...
+                                    </h1>
+                                    <p class="hero-subtitle">
+                                        Because if the cover does not impress you what else can?
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-description">
+                        <h2 class="developer-title">
+                            I'm a Web Developer.
+                        </h2>
+                      
+                        <p class="bio-text">
+                            My name is Meng Leangei. <br>Now I am a third Year student in major information <br>
+                            technology and communication engineering.
+                            <br>
+                            Study at Institute of technology of Cambodia.<br>
+                            I learing meaningful and delightful digital project that create a website <br>
+                            that protect the nearly extinct animal in cambodia.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Work Experience Section -->
+                <section class="work-experience">
+                    <h2 class="work-title">Volunteer Experience</h2>
+
+                    <div class="projects-grid">
+                        <div class="projects-row">
+                            <div class="project-col">
+                                <article class="project-card indigo">
+                                    <div class="project-content">
+                                        <div class="project-inner">
+                                            <div class="project-image-col">
+                                                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/0c246119e4769bdf768de8e42a079f66236f3246?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="CIB on the Mobile" class="project-image">
+                                            </div>
+                                            <div class="project-text-col">
+                                                <div class="project-text">
+                                                    <h3 class="project-title indigo">CIB on the Mobile</h3>
+                                                    <p class="project-description indigo">
+                                                        Take your client onboard seamlessly by our amazing<br>
+                                                        tool of digital onboard process.
+                                                    </p>
+                                                    <button class="learn-more-btn indigo">LEARN MORE</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="project-col">
+                                <article class="project-card violet">
+                                    <div class="project-content">
+                                        <div class="project-inner">
+                                            <div class="project-image-col">
+                                                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/980bec50480b1ae8dd5e46a734d8b6062b16b4cd?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="CIB on the Tablet" class="project-image">
+                                            </div>
+                                            <div class="project-text-col">
+                                                <div class="project-text">
+                                                    <h3 class="project-title violet">CIB on the Tablet</h3>
+                                                    <p class="project-description violet">
+                                                        Take your client onboard seamlessly by our amazing<br>
+                                                        tool of digital onboard process.
+                                                    </p>
+                                                    <button class="learn-more-btn violet">LEARN MORE</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="showcase-images">
+                        <div class="showcase-row">
+                            <div class="project-col">
+                                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/054659e2f149cb4172a4987d29d9cfee441c3838?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="Project showcase" class="showcase-image">
+                            </div>
+                            <div class="project-col">
+                                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/57f2c552b18afae936d322934390d91ebbc3a669?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="Project showcase" class="showcase-image">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/32ae6888eb83f370c10d2b813d1c7a44766762a3?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="Portfolio showcase" class="main-showcase">
+
+                <!-- First Project Showcase -->
+                <section class="project-showcase">
+                    <div class="showcase-row">
+                        <div class="project-col">
+                            <div class="showcase-content">
+                                <h3 class="showcase-title">Example Project</h3>
+                                <div class="showcase-description-box">
+                                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/da77efee5af32124f3bb83e9818842686a631f32?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="" class="showcase-bg-image">
+                                    <p class="showcase-description">
+                                        A web app for visualizing personalized Spotify data. View your<br>
+                                        top artists, top tracks, recently played tracks, and detailed audio<br>
+                                        information about each track. Create and save new playlists of<br>
+                                        recommended tracks based on your existing playlists and more.
+                                    </p>
+                                </div>
+                                <div class="showcase-links">
+                                    <a href="#">
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8249d5a43a893f83076e13cbfa54c826e03f451b?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="GitHub" class="showcase-icon">
+                                    </a>
+                                    <a href="#">
+                                        <div class="icon-container">
+                                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/87d298864a8e36c459d5168a25adcd61377913dd?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="" class="icon-bg">
+                                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/0206abb77968d1d26f12cda06ebdc604077cf3ef?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="External link" class="icon-overlay">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-col">
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2c97837ba5aad2c77044caaf6e65ac474730010b?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="Example Project" class="showcase-project-image">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Second Project Showcase -->
+                <section class="project-showcase second">
+                    <div class="showcase-row">
+                        <div class="project-col">
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/97bc93bb8d1645766dd748e18d85dce202362b06?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="Example Project" class="showcase-project-image">
+                        </div>
+                        <div class="project-col">
+                            <div class="showcase-content right">
+                                <h3 class="showcase-title">Example Project</h3>
+                                <div class="showcase-description-box right">
+                                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1c98108afa27466f96a8a268ab8d01a7a803080e?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="" class="showcase-bg-image">
+                                    <p class="showcase-description">
+                                        A web app for visualizing personalized Spotify data. View your<br>
+                                        top artists, top tracks, recently played tracks, and detailed audio<br>
+                                        information about each track. Create and save new playlists of<br>
+                                        recommended tracks based on your existing playlists and more.
+                                    </p>
+                                </div>
+                                <div class="showcase-links right">
+                                    <a href="#">
+                                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e927423137d5a3d3359f2a10734c6c1828871d1?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="GitHub" class="showcase-icon">
+                                    </a>
+                                    <a href="#">
+                                        <div class="icon-container">
+                                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/94a462df1c433dac802ca49de993b85f58b5ae45?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="" class="icon-bg">
+                                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5acae5493c6f8cad66fa40c5f35fa2f75c70266d?placeholderIfAbsent=true&apiKey=22d754820797414ea930e151bcb89ca1" alt="External link" class="icon-overlay">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section class="contact-section">
+                    <h2 class="contact-title">Contact</h2>
+                    <div class="contact-text">
+                        <p>
+                            I'm currently looking to join a cross-functional team that values improving people's lives<br>
+                            through accessible design. or have a project in mind? Let's connect.
+                        </p>
+                        <br>
+                        <a href="mailto:ibrhaimmemon930@gmail.com" class="contact-email">
+                            ibrhaimmemon930@gmail.com
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add hover effects for buttons
+        document.querySelectorAll('.learn-more-btn').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.opacity = '0.8';
+            });
+            button.addEventListener('mouseleave', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>
